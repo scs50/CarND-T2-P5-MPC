@@ -1,3 +1,53 @@
+[//]: # (Image References)
+
+[image1]: ./Screenshot from 2017-12-07 13-01-08.png "Best"
+[image2]: ./Screenshot from 2017-12-07 13-01-44.png "Better"
+[image3]: ./Screenshot from 2017-12-07 13-02-00.png "Bad"
+
+# Overview
+This project consisted of implementing a Model Predicitve Controller (MPC) that would control a car around a track in Udacity's provided simulator. The simulator provides telemetry information and waypoints to the controller via websocket and the controller provides steering angle and throttle control inputs back to the vehicle. Also, the controller must account for a 100 ms actuator latency consistent with real world applications.
+
+# Rubic Points
+## Compilation
+### Your code should compile.
+Code compiles without errors with make and cmake.
+
+## Implementation
+### The model
+
+The model used is the standard kinematic bicycle model:
+
+
+```
+x[t] = x[t-1] + v[t-1] * cos(psi[t-1]) * dt
+y[t] = y[t-1] + v[t-1] * sin(psi[t-1]) * dt
+psi[t] = psi[t-1] + v[t-1] / Lf * delta[t-1] * dt
+v[t] = v[t-1] + a[t-1] * dt
+cte[t] = f(x[t-1]) - y[t-1] + v[t-1] * sin(epsi[t-1]) * dt
+epsi[t] = psi[t] - psides[t-1] + v[t-1] * delta[t-1] / Lf * dt
+```
+where `x, y` is the car's position, `psi` is the car's heading angle, `v` is the car's velocity, `cte` is the Cross-track error (perpendicular distance between the car and the waypoints), `epsi` is the Orientation error (difference between the cars orientation and the desired oreintation along the waypoints). The other constant parameters are 'Lf' which is the distance between the center of mass and the front wheels (provided by the Udacity simulator). The output of the model is the vehicles steering angle and throttle value. 
+
+### Timestep Length and Elapsed Duration (N & dt)
+I chose N=10 and dt=0.1 for the prediction horizon values for a 1 second look ahead. These values were chosen based on the average human look ahead distance for normal driving speeds (granted this is normally a fucntion of speed). It also balances performance and computation complexity. The last reason for choosing the dt of 0.1 is becuase this is equal to the actuator latency which will make handling that easier which will be discuss later.
+
+### Polynomial Fitting and MPC Preprocessing
+The waypoints are processed to tranform them to the vehicle coordinates. Once they are in vehicle coordinates, a 3rd degree polynomial is fit. 
+
+### Model Predictive Control with Latency
+To address the latency, the actuator inputs from the next time stamps (since dt=latency=0.1) are applied. This means that the controller is accounting for the delay by applying the next control input before the latency delay so by the time the actual input is applied, it is the correct input based on the delayed vehicle model. 
+
+## Simulation
+### The vehicle must successfully drive a lap around the track.
+The vehicle drives around the track succesfully. Granted, it was after much tweaking of the cost function. Here are some images that show the progression of tweaking the cost function parameters. Performance goes from bad to better to best.
+
+
+![alt text][image3]
+![alt text][image2]
+![alt text][image1]
+
+# *Udacity's provided Readme*
+
 # CarND-Controls-MPC
 Self-Driving Car Engineer Nanodegree Program
 
