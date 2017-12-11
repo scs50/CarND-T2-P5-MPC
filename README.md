@@ -1,8 +1,8 @@
-[//]: # (Image References)
+[\\] : # (Image References)
 
-[image1]: ./Screenshot from 2017-12-07 13-01-08.png "Best"
-[image2]: ./Screenshot from 2017-12-07 13-01-44.png "Better"
-[image3]: ./Screenshot from 2017-12-07 13-02-00.png "Bad"
+[image1] : ./Screenshot from 2017-12-07 13-01-08.png "Best"
+[image2] : ./Screenshot from 2017-12-07 13-01-44.png "Better"
+[image3] : ./Screenshot from 2017-12-07 13-02-00.png "Bad"
 
 # Overview
 This project consisted of implementing a Model Predicitve Controller (MPC) that would control a car around a track in Udacity's provided simulator. The simulator provides telemetry information and waypoints to the controller via websocket and the controller provides steering angle and throttle control inputs back to the vehicle. Also, the controller must account for a 100 ms actuator latency consistent with real world applications.
