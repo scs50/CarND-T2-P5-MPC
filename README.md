@@ -1,6 +1,5 @@
 [\\] : # (Image References)
 
-[image1] : ./Screenshot from 2017-12-07 13-01-08.png "Best"
 [image2] : ./Screenshot from 2017-12-07 13-01-44.png "Better"
 [image3] : ./Screenshot from 2017-12-07 13-02-00.png "Bad"
 
@@ -42,7 +41,7 @@ To address the latency, the actuator inputs from the next time stamps (since dt=
 The vehicle drives around the track succesfully. Granted, it was after much tweaking of the cost function. Here are some images that show the progression of tweaking the cost function parameters. Performance goes from bad to better to best.
 
 
-![alt text][image3]
+![Best](./Screenshot from 2017-12-07 13-01-08.png)
 ![alt text][image2]
 ![alt text][image1]
 
