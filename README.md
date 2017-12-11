@@ -38,9 +38,10 @@ The vehicle drives around the track succesfully. Granted, it was after much twea
 ## Sources
 The following student projects were referenced:
 
-Darienmt : https://github.com/darienmt/CarND-MPC-Project-P5/blob/master/README.md
+Darienmt : https://github.com/darienmt/CarND-MPC-Project-P5
 
-Jeremy Shannon : https://github.com/jeremy-shannon/CarND-MPC-Project/blob/master/README.md
+Jeremy Shannon : https://github.com/jeremy-shannon/CarND-MPC-Project
+
 
 # *Udacity's provided Readme*
 
