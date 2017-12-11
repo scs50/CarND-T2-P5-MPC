@@ -35,6 +35,12 @@ To address the latency, the actuator inputs from the next time stamps (since dt=
 ### The vehicle must successfully drive a lap around the track.
 The vehicle drives around the track succesfully. Granted, it was after much tweaking of the cost function. 
 
+## Sources
+The following student projects were referenced:
+
+Darienmt : https://github.com/darienmt/CarND-MPC-Project-P5/blob/master/README.md
+
+Jeremy Shannon : https://github.com/jeremy-shannon/CarND-MPC-Project/blob/master/README.md
 
 # *Udacity's provided Readme*
 
